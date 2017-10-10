@@ -12,4 +12,6 @@ public class ApiUrl {
     public static final String HTTPS = "https://";
     public static final String COLON = ":";
 
+    public static final String COMMON_API = HTTPS + "";
+
 }

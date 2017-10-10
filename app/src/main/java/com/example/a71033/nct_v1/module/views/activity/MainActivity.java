@@ -1,14 +1,20 @@
 package com.example.a71033.nct_v1.module.views.activity;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.a71033.nct_v1.R;
 import com.example.a71033.nct_v1.common.BaseActivity;
 
+import butterknife.Bind;
+import retrofit2.Retrofit;
+
 public class MainActivity extends BaseActivity {
+
+    @Bind(R.id.tv_hello)
+    TextView tvHello;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +38,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void doBusiness(Context mContext) {
+
+
 
     }
 
