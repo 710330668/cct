@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.a71033.nct_v1.utils.ToastUtils;
+
 /**
  * Created by 71033 on 2017/10/9.
  */
@@ -41,6 +43,7 @@ public abstract class BaseActivity extends FragmentActivity implements
     private boolean isDebug;
     private String APP_NAME;
     protected final String TAG = this.getClass().getSimpleName();
+    protected ToastUtils mToastInstance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,7 @@ public abstract class BaseActivity extends FragmentActivity implements
         isDebug = MyApplication.isDebug;
         APP_NAME = MyApplication.APP_NAME;
         $Log(TAG + "-->onCreate()");
+        mToastInstance = ToastUtils.getInstance(this);
         try {
             Bundle bundle = getIntent().getExtras();
             initParms(bundle);
