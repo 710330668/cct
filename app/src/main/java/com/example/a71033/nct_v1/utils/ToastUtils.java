@@ -28,11 +28,11 @@ public class ToastUtils {
         return mShowToastUtils;
     }
 
-    public void showToastOnlyString(String message, int time) {
-        Toast.makeText(context, message, time).show();
+    public void showToastOnlyString(String message, int duration) {
+        Toast.makeText(context, message, duration).show();
     }
 
-    public void showToastOnlyString(int resourceId, int time) {
-        Toast.makeText(context, context.getResources().getText(resourceId), time).show();
+    public void showToastOnlyString(int resourceId, int duration) {
+        Toast.makeText(context, context.getResources().getText(resourceId), duration).show();
     }
 }
