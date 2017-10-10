@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2016 Haier, Inc. All Rights Reserved.
- */
 package com.example.a71033.nct_v1.utils;
 
 import android.content.Context;
