@@ -1,7 +1,6 @@
 package com.example.a71033.nct_v1.module.views.activity;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
@@ -25,10 +24,6 @@ public class MainActivity extends BaseActivity {
         return R.layout.activity_main;
     }
 
-    @Override
-    public void initView(View view) {
-
-    }
 
     @Override
     public void doBusiness(Context mContext) {

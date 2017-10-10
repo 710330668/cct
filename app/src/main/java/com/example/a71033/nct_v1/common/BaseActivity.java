@@ -19,15 +19,25 @@ import android.view.WindowManager;
 
 public abstract class BaseActivity extends FragmentActivity implements
         View.OnClickListener {
-    /** 是否沉浸状态栏 **/
+    /**
+     * 是否沉浸状态栏
+     **/
     private boolean isSetStatusBar = true;
-    /** 是否允许全屏 **/
+    /**
+     * 是否允许全屏
+     **/
     private boolean mAllowFullScreen = true;
-    /** 是否禁止旋转屏幕 **/
+    /**
+     * 是否禁止旋转屏幕
+     **/
     private boolean isAllowScreenRoate = false;
-    /** 当前Activity渲染的视图View **/
+    /**
+     * 当前Activity渲染的视图View
+     **/
     private View mContextView = null;
-    /** 是否输出日志信息 **/
+    /**
+     * 是否输出日志信息
+     **/
     private boolean isDebug;
     private String APP_NAME;
     protected final String TAG = this.getClass().getSimpleName();
@@ -58,7 +68,6 @@ public abstract class BaseActivity extends FragmentActivity implements
             } else {
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
             }
-            initView(mContextView);
             doBusiness(this);
         } catch (Exception e) {
             e.printStackTrace();
@@ -98,12 +107,6 @@ public abstract class BaseActivity extends FragmentActivity implements
      */
     // public abstract void setActivityPre();
 
-    /**
-     * [初始化控件]
-     *
-     * @param view
-     */
-    public abstract void initView(final View view);
 
     /**
      * [业务操作]
@@ -112,7 +115,9 @@ public abstract class BaseActivity extends FragmentActivity implements
      */
     public abstract void doBusiness(Context mContext);
 
-    /** View点击 **/
+    /**
+     * View点击
+     **/
     public abstract void widgetClick(View v);
 
     @Override
