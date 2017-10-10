@@ -8,12 +8,11 @@ import android.widget.TextView;
 import com.example.a71033.nct_v1.R;
 import com.example.a71033.nct_v1.common.BaseActivity;
 
-import butterknife.Bind;
-import retrofit2.Retrofit;
+import butterknife.BindView;
 
 public class MainActivity extends BaseActivity {
 
-    @Bind(R.id.tv_hello)
+    @BindView(R.id.tv_hello)
     TextView tvHello;
 
     @Override
