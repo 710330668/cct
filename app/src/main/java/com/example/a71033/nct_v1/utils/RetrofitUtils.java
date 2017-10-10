@@ -5,8 +5,6 @@ import android.os.Environment;
 
 import com.example.a71033.nct_v1.common.Const;
 import com.example.a71033.nct_v1.module.contract.retrofit.ApiUrl;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.io.File;
 import java.io.IOException;
