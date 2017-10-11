@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--距离-->
+    <dimen name="dimenToolPadding">20dp</dimen>
+    <dimen name="dimenMainButtonHeight">150dp</dimen>
+    <dimen name="dimenMainButtonRadius">25dp</dimen>
+    <dimen name="dimenMainButtonElevation">15dp</dimen>
+
+    <!--字体大小-->
+    <dimen name="wsMainTitle">30sp</dimen>
+</resources>

@@ -3,4 +3,13 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!--背景颜色-->
+    <color name="colorToolBackground">#3F51B5</color>
+    <color name="colorLookRoundBackground">#FF4081</color>
+    <color name="colorTimeLimitBackground">#E51C23</color>
+
+
+    <!--字体颜色-->
+    <color name="colorTitleText">#FFFFFF</color>
 </resources>

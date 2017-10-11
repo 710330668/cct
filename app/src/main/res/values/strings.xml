@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Nct_v1</string>
+    <string name="app_name_official">村村淘</string>
+
+    <string name="look_round_buy">淘一淘</string>
+    <string name="time_limit_buy">限时淘</string>
 </resources>

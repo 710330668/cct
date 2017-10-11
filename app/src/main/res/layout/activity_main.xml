@@ -1,19 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.a71033.nct_v1.module.views.activity.MainActivity">
 
-    <TextView
-        android:id="@+id/tv_hello"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-</android.support.constraint.ConstraintLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_look_round"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimenMainButtonHeight"
+            android:layout_weight="3"
+            app:cardBackgroundColor="@color/colorLookRoundBackground"
+            app:cardCornerRadius="@dimen/dimenMainButtonRadius"
+            app:cardElevation="@dimen/dimenMainButtonElevation">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/look_round_buy"
+                android:textColor="@color/colorTitleText"
+                android:textSize="@dimen/wsMainTitle" />
+
+
+        </android.support.v7.widget.CardView>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_time_limit"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimenMainButtonHeight"
+            android:layout_weight="3"
+            app:cardBackgroundColor="@color/colorTimeLimitBackground"
+            app:cardCornerRadius="@dimen/dimenMainButtonRadius"
+            app:cardElevation="@dimen/dimenMainButtonElevation">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/time_limit_buy"
+                android:textColor="@color/colorTitleText"
+                android:textSize="@dimen/wsMainTitle" />
+
+
+        </android.support.v7.widget.CardView>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorToolBackground"
+        android:gravity="center"
+        android:paddingBottom="@dimen/dimenToolPadding"
+        android:paddingTop="@dimen/dimenToolPadding"
+        android:text="@string/app_name_official"
+        android:textColor="@color/colorTitleText"
+        android:textSize="@dimen/wsMainTitle" />
+
+
+</FrameLayout>
