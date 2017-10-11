@@ -124,10 +124,7 @@ public class RetrofitUtils {
                         .header("Content-Encoding", "utf-8")
                         .header("appVersion", Const.appVersion)
                         .header("clientId", HttpHeaderUtils.getClientId(mContext))
-                        .header("Connection", "close")
                         .header("timestamp",timeStamp)
-                        .header("language", "zh-cn")
-                        .header("timezone", "8")
                         .build();
                 long t1 = System.nanoTime();
                 Response response = chain.proceed(signedRequest);

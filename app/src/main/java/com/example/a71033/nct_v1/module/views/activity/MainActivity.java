@@ -8,11 +8,13 @@ import android.widget.TextView;
 import com.example.a71033.nct_v1.R;
 import com.example.a71033.nct_v1.common.BaseActivity;
 
-import butterknife.BindView;
+import butterknife.Bind;
+
 
 public class MainActivity extends BaseActivity {
 
-    @BindView(R.id.tv_hello)
+
+    @Bind(R.id.tv_hello)
     TextView tvHello;
 
     @Override
@@ -33,7 +35,6 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void doBusiness(Context mContext) {
-
 
 
     }
