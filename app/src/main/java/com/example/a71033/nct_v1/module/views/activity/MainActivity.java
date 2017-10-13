@@ -38,12 +38,6 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void widgetClick(View v) {
-
-    }
-
-    @Override
-    public void onClick(View v) {
-        super.onClick(v);
         switch (v.getId()) {
             case R.id.cv_look_round:
 //              淘一淘  startActivity();
