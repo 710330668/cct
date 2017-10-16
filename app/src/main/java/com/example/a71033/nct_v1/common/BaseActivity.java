@@ -14,13 +14,15 @@ import android.view.WindowManager;
 
 import com.example.a71033.nct_v1.utils.ToastUtils;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by 71033 on 2017/10/9.
  */
 
 
 public abstract class BaseActivity extends FragmentActivity implements
-        View.OnClickListener {
+            View.OnClickListener {
     /**
      * 是否沉浸状态栏
      **/
@@ -72,11 +74,15 @@ public abstract class BaseActivity extends FragmentActivity implements
             } else {
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
             }
+            ButterKnife.bind(this);
+            setListener();
             doBusiness(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    protected abstract void setListener();
 
     /**
      * [沉浸状态栏]
