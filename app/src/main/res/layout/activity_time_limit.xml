@@ -4,45 +4,67 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/lly_time_limit"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/dp_100"
-        android:orientation="horizontal"
         android:layout_centerHorizontal="true"
-        >
+        android:orientation="horizontal">
+
         <Button
+            android:id="@+id/btn_clock_eight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="8:00"
             android:textSize="@dimen/sp_20" />
+
         <Button
+            android:id="@+id/btn_clock_ten"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="10:00"
             android:textSize="@dimen/sp_20" />
+
         <Button
+            android:id="@+id/btn_clock_twelve"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="12:00"
             android:textSize="@dimen/sp_20" />
+
         <Button
+            android:id="@+id/btn_clock_fourteen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="14:00"
             android:textSize="@dimen/sp_20" />
+
         <Button
+            android:id="@+id/btn_clock_sixteen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="16:00"
             android:textSize="@dimen/sp_20" />
+
         <Button
+            android:id="@+id/btn_clock_eighteen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="18:00"
             android:textSize="@dimen/sp_20" />
+
         <Button
+            android:id="@+id/btn_clock_twenty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="20:00"
             android:textSize="@dimen/sp_20" />
-  </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rlv_merchandise"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lly_time_limit">
+
+    </android.support.v7.widget.RecyclerView>
 </RelativeLayout>
