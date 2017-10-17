@@ -11,9 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.example.a71033.nct_v1.R;
 import com.example.a71033.nct_v1.utils.ToastUtils;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -22,7 +27,7 @@ import butterknife.ButterKnife;
 
 
 public abstract class BaseActivity extends FragmentActivity implements
-            View.OnClickListener {
+        View.OnClickListener {
     /**
      * 是否沉浸状态栏
      **/
@@ -46,6 +51,9 @@ public abstract class BaseActivity extends FragmentActivity implements
     private String APP_NAME;
     protected final String TAG = this.getClass().getSimpleName();
     protected ToastUtils mToastInstance;
+    private RelativeLayout mContent;
+    private ImageView mBack;
+    private TextView mTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +65,6 @@ public abstract class BaseActivity extends FragmentActivity implements
         try {
             Bundle bundle = getIntent().getExtras();
             initParms(bundle);
-            mContextView = LayoutInflater.from(this)
-                    .inflate(bindLayout(), null);
             if (mAllowFullScreen) {
                 this.getWindow().setFlags(
                         WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -68,12 +74,22 @@ public abstract class BaseActivity extends FragmentActivity implements
             if (isSetStatusBar) {
                 steepStatusBar();
             }
-            setContentView(mContextView);
+//            setContentView(mContextView);
             if (!isAllowScreenRoate) {
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
             } else {
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
             }
+            super.setContentView(R.layout.activity_base);
+            mContent = ((RelativeLayout) findViewById(R.id.rl_activity_content));
+            mContextView = LayoutInflater.from(this)
+                    .inflate(bindLayout(), null);
+            mContent.addView(mContextView, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+            mBack = (ImageView) findViewById(R.id.ig_toolbar_left);
+            mBack.setOnClickListener(this);
+            mTitle = (TextView) findViewById(R.id.tv_toolbar_title);
+            mTitle.setText(TAG);
+
             ButterKnife.bind(this);
             setListener();
             doBusiness(this);
@@ -132,8 +148,13 @@ public abstract class BaseActivity extends FragmentActivity implements
 
     @Override
     public void onClick(View v) {
-        if (fastClick())
-            widgetClick(v);
+        if (fastClick()) {
+            if (v.getId() != R.id.ig_toolbar_left) {
+                widgetClick(v);
+            } else {
+                finish();
+            }
+        }
     }
 
     /**
@@ -244,5 +265,14 @@ public abstract class BaseActivity extends FragmentActivity implements
         }
         lastClick = System.currentTimeMillis();
         return true;
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+    }
+
+    protected void setToolTitle(String mTitle) {
+        this.mTitle.setText(mTitle);
     }
 }

@@ -3,6 +3,7 @@ package com.example.a71033.nct_v1.module.views.activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.View;
 
 import com.example.a71033.nct_v1.R;
@@ -44,6 +45,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void doBusiness(Context mContext) {
+        setToolTitle(getString(R.string.app_name_official));
     }
 
     @Override
@@ -51,12 +53,13 @@ public class MainActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.cv_look_round:
 //              淘一淘  startActivity();
-                startActivity(TimeLimitActivity.class);
+                startActivity(LookRoundActivity.class);
                 break;
             case R.id.cv_time_limit:
                 //限时淘
                 startActivity(TimeLimitActivity.class);
                 break;
+            default:
         }
     }
 }

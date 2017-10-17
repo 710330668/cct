@@ -75,8 +75,9 @@ public class TimeLimitActivity extends BaseActivity {
 
     @Override
     public void doBusiness(Context mContext) {
+        setToolTitle(getString(R.string.time_limit_buy));
         rlvMerchandise.setLayoutManager(new LinearLayoutManager(this));
-        rlvMerchandise.setAdapter(new BaseAdapter(itemDatas, new SettingDelegate(), new onItemClickListener() {
+        rlvMerchandise.setAdapter(new BaseAdapter<>(itemDatas, new SettingDelegate(), new onItemClickListener() {
             @Override
             public void onClick(View v, Object data) {
 
@@ -91,7 +92,7 @@ public class TimeLimitActivity extends BaseActivity {
 
     @Override
     public void widgetClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_clock_eight:
                 break;
             case R.id.btn_clock_ten:
