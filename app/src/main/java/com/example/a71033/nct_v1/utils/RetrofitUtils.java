@@ -123,7 +123,7 @@ public class RetrofitUtils {
                         .header("Content-Type", "application/json;charset=UTF-8")
                         .header("Content-Encoding", "utf-8")
                         .header("appVersion", Const.appVersion)
-                        .header("clientId", HttpHeaderUtils.getClientId(mContext))
+//                        .header("clientId", HttpHeaderUtils.getClientId(mContext))
                         .header("timestamp",timeStamp)
                         .build();
                 long t1 = System.nanoTime();
