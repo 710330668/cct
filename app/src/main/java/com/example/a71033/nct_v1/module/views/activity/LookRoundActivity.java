@@ -5,14 +5,21 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.example.a71033.nct_v1.R;
 import com.example.a71033.nct_v1.adapter.SettingDelegate;
 import com.example.a71033.nct_v1.common.BaseActivity;
 import com.example.a71033.nct_v1.common.BaseAdapter;
+import com.example.a71033.nct_v1.common.BaseCallback;
+import com.example.a71033.nct_v1.common.Const;
 import com.example.a71033.nct_v1.module.contract.onItemClickListener;
+import com.example.a71033.nct_v1.module.contract.retrofit.ApiService;
+import com.example.a71033.nct_v1.module.model.AmoyRequest;
+import com.example.a71033.nct_v1.module.model.AmoyResponse;
 import com.example.a71033.nct_v1.module.model.ItemData;
+import com.example.a71033.nct_v1.utils.RetrofitUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +53,19 @@ public class LookRoundActivity extends BaseActivity {
     @Override
     public void doBusiness(Context mContext) {
         setToolTitle(getString(R.string.look_round_buy));
+        AmoyRequest amoyRequest = new AmoyRequest();
+        amoyRequest.setAmoyId(Const.lookRoundId);
+        RetrofitUtils.getInstance(this).create(ApiService.class).getAmoyList(amoyRequest)
+                .enqueue(new BaseCallback<AmoyResponse>() {
+                    @Override
+                    protected void onSuccess(AmoyResponse response) {
+
+                    }
+
+                    @Override
+                    protected void onFail(String msg) {
+                    }
+                });
         mRclCategory.setLayoutManager(new GridLayoutManager(this, 3, LinearLayoutManager.VERTICAL, false));
         mRclCategory.setAdapter(new BaseAdapter<>(mDatas, new SettingDelegate(), new onItemClickListener() {
             @Override

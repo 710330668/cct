@@ -14,4 +14,22 @@ public class Const {
      * 版本号
      */
     public static String appVersion = "2017101001";
+
+
+    public static boolean isdebug = false;
+
+    /**
+     * 淘一淘 ID
+     */
+    public static String lookRoundId = "1";
+
+    /**
+     * 限时淘 ID
+     */
+    public static String timeLimitId = "2";
+
+    /**
+     * 我想要 ID
+     */
+    public static String wantId = "3";
 }

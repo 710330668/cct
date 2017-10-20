@@ -9,6 +9,7 @@ public class ApiUrl {
     public static final String HTTPS = "https://";
     public static final String COLON = ":";
 
-    public static final String COMMON_API = HTTPS + "";
+
+    public static final String COMMON_API = HTTP + "223.79.35.112:9000/";
 
 }

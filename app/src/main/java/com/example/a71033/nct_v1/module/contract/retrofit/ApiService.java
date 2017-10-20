@@ -16,6 +16,6 @@ public interface ApiService {
      * @param
      * @return
      */
-     @POST(ApiUrl.COMMON_API + "/Amoy")
-     Call<AmoyResponse> getAmoyList(@Body AmoyRequest request);
+     @POST(ApiUrl.COMMON_API + "CCT/Home/Amoy")
+         Call<AmoyResponse> getAmoyList(@Body AmoyRequest amoyRequest);
 }

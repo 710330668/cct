@@ -15,4 +15,5 @@ public class AmoyRequest {
     public void setAmoyId(String amoyId) {
         this.amoyId = amoyId;
     }
+
 }

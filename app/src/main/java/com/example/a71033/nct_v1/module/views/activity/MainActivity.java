@@ -3,14 +3,12 @@ package com.example.a71033.nct_v1.module.views.activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.View;
 
 import com.example.a71033.nct_v1.R;
 import com.example.a71033.nct_v1.common.BaseActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 
 public class MainActivity extends BaseActivity {
