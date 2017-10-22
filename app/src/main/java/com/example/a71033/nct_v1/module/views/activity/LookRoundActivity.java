@@ -88,7 +88,6 @@ public class LookRoundActivity extends BaseActivity {
 
                     @Override
                     protected void onFail(String msg) {
-                        Log.e(TAG, "onFail: 加载失败" );
                         loadFailure();
                     }
                 });
@@ -97,5 +96,11 @@ public class LookRoundActivity extends BaseActivity {
     @Override
     public void widgetClick(View v) {
 
+    }
+
+    @Override
+    public void doRetry() {
+        super.doRetry();
+        loadData();
     }
 }

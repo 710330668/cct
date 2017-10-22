@@ -23,7 +23,6 @@ import com.example.a71033.nct_v1.R;
 
 public class LoadingLayout extends FrameLayout {
     private static final String TAG = "LoadingLayout";
-    private Context mContext;
     private LinearLayout mLoadingLinear;
     private LinearLayout mFailedLinear;
     private ImageView mLoadingImage;
@@ -44,7 +43,6 @@ public class LoadingLayout extends FrameLayout {
         init(context);
     }
     private void init(Context context) {
-        this.mContext = context;
         LayoutInflater.from(context).inflate(R.layout.loading_layout, this);
         mFailedLinear = (LinearLayout) findViewById(R.id.linear_load_fail);
         mLoadingLinear = (LinearLayout)findViewById(R.id.linear_laoding);
@@ -57,8 +55,6 @@ public class LoadingLayout extends FrameLayout {
         mFailedLinear.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e(TAG, "onClick: 重新加载" );
-//                loadRetry();
                 doWhenRetryListener.doRetry();
             }
         });
@@ -76,6 +72,12 @@ public class LoadingLayout extends FrameLayout {
 
     public void setRetryListener(doWhenRetryListener  doWhenRetryListener){
         this.doWhenRetryListener = doWhenRetryListener;
+    }
+
+    public void showLoading() {
+        this.setVisibility(VISIBLE);
+        mFailedLinear.setVisibility(GONE);
+        mLoadingLinear.setVisibility(VISIBLE);
     }
 //    private void loadRetry(){
 //

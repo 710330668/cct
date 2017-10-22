@@ -27,7 +27,7 @@ import butterknife.ButterKnife;
 
 
 public abstract class BaseActivity extends FragmentActivity implements
-        View.OnClickListener {
+        View.OnClickListener, LoadingLayout.doWhenRetryListener {
     /**
      * 是否沉浸状态栏
      **/
@@ -91,6 +91,7 @@ public abstract class BaseActivity extends FragmentActivity implements
             mTitle = (TextView) findViewById(R.id.tv_toolbar_title);
             mTitle.setText(TAG);
             mLoadView = (LoadingLayout)findViewById(R.id.loading_view);
+            mLoadView.setRetryListener(this);
             ButterKnife.bind(this);
             setListener();
             doBusiness(this);
@@ -278,12 +279,17 @@ public abstract class BaseActivity extends FragmentActivity implements
         this.mBack.setVisibility(visibility);
     }
     protected void showLoading(){
-        mLoadView.setVisibility(View.VISIBLE);
+        mLoadView.showLoading();
     }
     protected void loadSuccess(){
         mLoadView.loadSuccess();
     }
     protected void loadFailure(){
         mLoadView.loadFail();
+    }
+
+    @Override
+    public void doRetry() {
+        showLoading();
     }
 }
