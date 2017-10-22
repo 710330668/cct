@@ -1,6 +1,7 @@
 package com.example.a71033.nct_v1.module.views.activity;
 
 import android.content.Context;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,6 +20,7 @@ import com.example.a71033.nct_v1.module.contract.retrofit.ApiService;
 import com.example.a71033.nct_v1.module.model.AmoyRequest;
 import com.example.a71033.nct_v1.module.model.AmoyResponse;
 import com.example.a71033.nct_v1.module.model.ItemData;
+import com.example.a71033.nct_v1.module.views.view.LoadingLayout;
 import com.example.a71033.nct_v1.utils.RetrofitUtils;
 
 import java.util.ArrayList;
@@ -31,6 +33,7 @@ public class LookRoundActivity extends BaseActivity {
     RecyclerView mRclCategory;
 
     private List<ItemData> mDatas;
+    private BaseAdapter<ItemData> mAdapter;
 
     @Override
     protected void setListener() {
@@ -38,11 +41,8 @@ public class LookRoundActivity extends BaseActivity {
     }
 
     @Override
-    public void initParms(Bundle parms) {
+    public void initParams(Bundle params) {
         mDatas = new ArrayList<>();
-        for (int i = 0; i < 7; i++) {
-            mDatas.add(new ItemData(0, SettingDelegate.CATEGORY_INFO, "衣服" + i));
-        }
     }
 
     @Override
@@ -52,22 +52,9 @@ public class LookRoundActivity extends BaseActivity {
 
     @Override
     public void doBusiness(Context mContext) {
-        setToolTitle(getString(R.string.look_round_buy));
-        AmoyRequest amoyRequest = new AmoyRequest();
-        amoyRequest.setAmoyId(Const.lookRoundId);
-        RetrofitUtils.getInstance(this).create(ApiService.class).getAmoyList(amoyRequest)
-                .enqueue(new BaseCallback<AmoyResponse>() {
-                    @Override
-                    protected void onSuccess(AmoyResponse response) {
-
-                    }
-
-                    @Override
-                    protected void onFail(String msg) {
-                    }
-                });
+        setToolTitle(getString(R.string.look_round_buy), View.VISIBLE);
         mRclCategory.setLayoutManager(new GridLayoutManager(this, 3, LinearLayoutManager.VERTICAL, false));
-        mRclCategory.setAdapter(new BaseAdapter<>(mDatas, new SettingDelegate(), new onItemClickListener() {
+        mAdapter = new BaseAdapter<>(mDatas, new SettingDelegate(), new onItemClickListener() {
             @Override
             public void onClick(View v, Object data) {
 
@@ -77,7 +64,34 @@ public class LookRoundActivity extends BaseActivity {
             public boolean onLongClick(View v, Object data) {
                 return false;
             }
-        }));
+        });
+        mRclCategory.setAdapter(mAdapter);
+        showLoading();
+        loadData();
+    }
+
+    private void loadData() {
+        AmoyRequest amoyRequest = new AmoyRequest();
+        amoyRequest.setAmoyId(Const.lookRoundId);
+        RetrofitUtils.getInstance(this).create(ApiService.class).getAmoyList(amoyRequest)
+                .enqueue(new BaseCallback<AmoyResponse>() {
+                    @Override
+                    protected void onSuccess(AmoyResponse response) {
+                        loadSuccess();
+                        List<AmoyResponse.Amoy> amoyList = response.getAmoyList();
+                        for (AmoyResponse.Amoy bean:amoyList) {
+                            mDatas.add(new ItemData(0,SettingDelegate.CATEGORY_INFO,bean));
+                            mAdapter.notifyDataSetChanged();
+                        }
+
+                    }
+
+                    @Override
+                    protected void onFail(String msg) {
+                        Log.e(TAG, "onFail: 加载失败" );
+                        loadFailure();
+                    }
+                });
     }
 
     @Override

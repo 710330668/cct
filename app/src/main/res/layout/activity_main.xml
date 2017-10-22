@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,14 +7,16 @@
     tools:context="com.example.a71033.nct_v1.module.views.activity.MainActivity">
 
     <LinearLayout
+        android:id="@+id/ll_button"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <View
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1" />
 
         <android.support.v7.widget.CardView
@@ -40,7 +42,7 @@
 
         <View
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1" />
 
         <android.support.v7.widget.CardView
@@ -65,9 +67,40 @@
 
         <View
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1" />
 
     </LinearLayout>
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_above="@+id/ll_button"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="120dp"
+        android:background="@drawable/bg_search_ll"
+        android:padding="@dimen/dimenLienWidth">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorWhite"
+            android:lines="1"
+            android:padding="@dimen/dimenLienWidth" />
+
+        <View
+            android:layout_width="@dimen/dimenLienWidth"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/tv_want_to_buy"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/wang_to_buy"
+            android:textSize="@dimen/sp_20" />
+    </LinearLayout>
+
+</RelativeLayout>

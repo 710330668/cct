@@ -42,5 +42,13 @@ public class AmoyResponse extends BaseResponse {
         public void setTypeId(String typeId) {
             this.typeId = typeId;
         }
+
+        @Override
+        public String toString() {
+            return "Amoy{" +
+                    "typeName='" + typeName + '\'' +
+                    ", typeId='" + typeId + '\'' +
+                    '}';
+        }
     }
 }

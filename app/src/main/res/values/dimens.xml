@@ -6,6 +6,8 @@
     <dimen name="dimenMainButtonRadius">25dp</dimen>
     <dimen name="dimenMainButtonElevation">15dp</dimen>
 
+    <dimen name="dimenLienWidth">1px</dimen>
+
     <!--字体大小-->
     <dimen name="wsMainTitle">30sp</dimen>
     <dimen name="sp_20">20sp</dimen>

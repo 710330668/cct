@@ -16,9 +16,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.a71033.nct_v1.R;
+import com.example.a71033.nct_v1.module.views.view.LoadingLayout;
 import com.example.a71033.nct_v1.utils.ToastUtils;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -54,6 +54,7 @@ public abstract class BaseActivity extends FragmentActivity implements
     private RelativeLayout mContent;
     private ImageView mBack;
     private TextView mTitle;
+    private LoadingLayout mLoadView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +65,7 @@ public abstract class BaseActivity extends FragmentActivity implements
         mToastInstance = ToastUtils.getInstance(this);
         try {
             Bundle bundle = getIntent().getExtras();
-            initParms(bundle);
+            initParams(bundle);
             if (mAllowFullScreen) {
                 this.getWindow().setFlags(
                         WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -89,7 +90,7 @@ public abstract class BaseActivity extends FragmentActivity implements
             mBack.setOnClickListener(this);
             mTitle = (TextView) findViewById(R.id.tv_toolbar_title);
             mTitle.setText(TAG);
-
+            mLoadView = (LoadingLayout)findViewById(R.id.loading_view);
             ButterKnife.bind(this);
             setListener();
             doBusiness(this);
@@ -117,9 +118,9 @@ public abstract class BaseActivity extends FragmentActivity implements
     /**
      * [初始化Bundle参数]
      *
-     * @param parms
+     * @param params
      */
-    public abstract void initParms(Bundle parms);
+    public abstract void initParams(Bundle params);
 
     /**
      * [绑定布局]
@@ -272,7 +273,17 @@ public abstract class BaseActivity extends FragmentActivity implements
         super.onWindowFocusChanged(hasFocus);
     }
 
-    protected void setToolTitle(String mTitle) {
+    protected void setToolTitle(String mTitle, int visibility) {
         this.mTitle.setText(mTitle);
+        this.mBack.setVisibility(visibility);
+    }
+    protected void showLoading(){
+        mLoadView.setVisibility(View.VISIBLE);
+    }
+    protected void loadSuccess(){
+        mLoadView.loadSuccess();
+    }
+    protected void loadFailure(){
+        mLoadView.loadFail();
     }
 }

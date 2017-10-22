@@ -61,7 +61,7 @@ public class TimeLimitActivity extends BaseActivity {
     }
 
     @Override
-    public void initParms(Bundle parms) {
+    public void initParams(Bundle params) {
         itemDatas = new ArrayList<>();
         for (int i = 0; i < 3; ++i) {
             itemDatas.add(new ItemData(0, SettingDelegate.SELF_INFO, "Oppo R9"));
@@ -75,7 +75,7 @@ public class TimeLimitActivity extends BaseActivity {
 
     @Override
     public void doBusiness(Context mContext) {
-        setToolTitle(getString(R.string.time_limit_buy));
+        setToolTitle(getString(R.string.time_limit_buy), View.VISIBLE);
         rlvMerchandise.setLayoutManager(new LinearLayoutManager(this));
         rlvMerchandise.setAdapter(new BaseAdapter<>(itemDatas, new SettingDelegate(), new onItemClickListener() {
             @Override
