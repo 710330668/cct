@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.example.a71033.nct_v1.R;
 import com.example.a71033.nct_v1.common.BaseViewHolder;
+import com.example.a71033.nct_v1.module.model.AmoyResponse;
 import com.example.a71033.nct_v1.module.model.ItemData;
 
 /**
@@ -35,6 +36,6 @@ public class CategoryViewHolder extends BaseViewHolder<ItemData> {
 
     @Override
     public void onBindViewHolder(ItemData data) {
-        mCategoryName.setText(data.itemDesc);
+        mCategoryName.setText(((AmoyResponse.Amoy) data.data).getTypeName());
     }
 }
