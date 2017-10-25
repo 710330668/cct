@@ -2,6 +2,7 @@ package com.example.a71033.nct_v1.module.views.activity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -76,7 +77,7 @@ public class TimeLimitActivity extends BaseActivity {
     @Override
     public void doBusiness(Context mContext) {
         setToolTitle(getString(R.string.time_limit_buy), View.VISIBLE);
-        rlvMerchandise.setLayoutManager(new LinearLayoutManager(this));
+        rlvMerchandise.setLayoutManager(new GridLayoutManager(this,3,LinearLayoutManager.VERTICAL,false));
         rlvMerchandise.setAdapter(new BaseAdapter<>(itemDatas, new SettingDelegate(), new onItemClickListener() {
             @Override
             public void onClick(View v, Object data) {

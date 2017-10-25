@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.a71033.nct_v1.module.contract.onItemClickListener;
+import com.example.a71033.nct_v1.module.model.ItemData;
 
 import java.util.Collections;
 import java.util.List;
@@ -79,7 +80,7 @@ public class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder> {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    listener.onClick(v, dataList.get(position));
+                    listener.onClick(v, ((ItemData)dataList.get(position)).data);
                 }
             });
             holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
