@@ -20,6 +20,8 @@ import com.example.a71033.nct_v1.module.contract.retrofit.ApiService;
 import com.example.a71033.nct_v1.module.model.AmoyRequest;
 import com.example.a71033.nct_v1.module.model.AmoyResponse;
 import com.example.a71033.nct_v1.module.model.ItemData;
+import com.example.a71033.nct_v1.module.model.ProListRequest;
+import com.example.a71033.nct_v1.module.model.ProListResponse;
 import com.example.a71033.nct_v1.module.views.view.LoadingLayout;
 import com.example.a71033.nct_v1.utils.RetrofitUtils;
 
@@ -57,7 +59,22 @@ public class LookRoundActivity extends BaseActivity {
         mAdapter = new BaseAdapter<>(mDatas, new SettingDelegate(), new onItemClickListener() {
             @Override
             public void onClick(View v, Object data) {
-
+                String id = ((AmoyResponse.Amoy)data).getTypeId();
+                String content = "";
+//                ProListRequest request = new ProListRequest();
+//                request.setContent(content);
+//                request.setId(id);
+//                RetrofitUtils.getInstance(LookRoundActivity.this).create(ApiService.class).
+//                        getProductList(request).enqueue(new BaseCallback<ProListResponse>() {
+//                    @Override
+//                    protected void onSuccess(ProListResponse response) {
+//                    }
+//
+//                    @Override
+//                    protected void onFail(String msg) {
+//
+//                    }
+//                });
             }
 
             @Override

@@ -10,6 +10,6 @@ public class ApiUrl {
     public static final String COLON = ":";
 
 
-    public static final String COMMON_API = HTTP + "223.79.35.112:9000/";
+    public static final String COMMON_API = HTTP + "223.79.35.11:9000/";
 
 }
